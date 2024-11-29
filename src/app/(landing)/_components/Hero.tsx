@@ -5,7 +5,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <section className="container flex flex-col items-center gap-2 text-center text-foreground">
-      <a
+      <Link
         target="_blank"
         rel="noreferrer"
         href="https://github.com/Lokendrakushwah12/blogora"
@@ -17,7 +17,7 @@ const Hero = () => {
           <GitHubLogoIcon />
           Stars on GitHub
         </div>
-      </a>
+      </Link>
 
       <h1 className="text-4xl font-semibold tracking-tighter md:text-6xl lg:leading-[1.1]">
         Build the Blog You&apos;ve Always Wanted

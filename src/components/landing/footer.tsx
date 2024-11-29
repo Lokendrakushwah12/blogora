@@ -2,6 +2,12 @@ import { DiscIcon, Instagram, Pen, Twitter } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Shell } from "../shell";
+import {
+  DiscordLogoIcon,
+  GitHubLogoIcon,
+  InstagramLogoIcon,
+  TwitterLogoIcon,
+} from "@radix-ui/react-icons";
 const Footer = () => {
   const FOOTER_LINKS = [
     {
@@ -79,20 +85,30 @@ const Footer = () => {
         <div className="relative flex items-center justify-between">
           <p className="text-sm font-[400] text-muted-foreground">
             Built by&nbsp;
-            <span className="font-[500] text-muted-foreground hover:text-secondary-foreground">
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href="https://x.com/lokendratwt"
+              className="font-[500] text-muted-foreground hover:text-secondary-foreground"
+            >
               Lokendra.
-            </span>
+            </Link>
           </p>
           <div className="flex items-center gap-4">
-            <Link href="#" className="p-1">
-              <Instagram className="h-5 w-5 text-muted-foreground hover:text-secondary-foreground" />
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/lokendrakushwah12"
+              className="p-1"
+            >
+              <GitHubLogoIcon className="h-5 w-5 text-muted-foreground hover:text-secondary-foreground" />
+            </Link>
+            {/* <Link href="#" className="p-1">
+              <TwitterLogoIcon className="h-5 w-5 text-muted-foreground hover:text-secondary-foreground" />
             </Link>
             <Link href="#" className="p-1">
-              <Twitter className="h-5 w-5 text-muted-foreground hover:text-secondary-foreground" />
-            </Link>
-            <Link href="#" className="p-1">
-              <DiscIcon className="h-5 w-5 text-muted-foreground hover:text-secondary-foreground" />
-            </Link>
+              <DiscordLogoIcon className="h-5 w-5 text-muted-foreground hover:text-secondary-foreground" />
+            </Link> */}
           </div>
         </div>
       </Shell>

@@ -1,7 +1,17 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ChevronDown, ChevronUp, Menu, Pen, XIcon } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  GitPullRequestDraftIcon,
+  Menu,
+  Pen,
+  PenBox,
+  PenSquare,
+  PenToolIcon,
+  XIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
@@ -13,6 +23,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
+import { Pencil1Icon, Pencil2Icon, ReaderIcon } from "@radix-ui/react-icons";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -129,31 +140,37 @@ const Navbar = () => {
                 </NavigationMenu>
               </div>
             </div>
-            <div className="flex items-center gap-2 lg:gap-4">
-              <Button
-                size="icon"
-                variant="ghost"
-                onClick={() => setIsOpen((prev) => !prev)}
-                className="h-8 w-8 p-2 lg:hidden"
-              >
-                {isOpen ? (
-                  <XIcon className="h-4 w-4 duration-300" />
-                ) : (
-                  <Menu className="h-3.5 w-3.5 duration-300" />
-                )}
-              </Button>
-            </div>
           </div>
-            <div className="flex items-center justify-center space-x-4 py-4">
-              <Link href="/blogs">
-                <Button variant="outline" size="sm" className="text-foreground">
-                  Read now
-                </Button>
-              </Link>
-              <Link href="/write">
-                <Button size="sm">Start Writing</Button>
-              </Link>
-            </div>
+          <div className="flex items-center justify-center space-x-4 py-4">
+            <Link href="/blogs">
+              <Button variant="outline" size="sm" className="text-foreground">
+                <span className="hidden sm:block">Read now</span>
+                <span className="block sm:hidden">
+                  <ReaderIcon />
+                </span>
+              </Button>
+            </Link>
+            <Link href="/write">
+              <Button size="sm">
+                <span className="hidden sm:block">Start Writing</span>
+                <span className="block sm:hidden">
+                  <PenBox />
+                </span>
+              </Button>
+            </Link>
+            <Button
+              className="lg:hidden"
+              size="sm"
+              variant="secondary"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              {isOpen ? (
+                <XIcon className="h-5 w-5 duration-300" />
+              ) : (
+                <Menu className="h-5 w-5 duration-300" />
+              )}
+            </Button>
+          </div>
         </div>
       </header>
 
