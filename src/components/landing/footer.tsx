@@ -49,11 +49,11 @@ const Footer = () => {
               <span className="text-xl font-medium">Blogora</span>
             </div>
             <p className="max-w mt-4 text-base">
-              Empower your business with our AI tools.
+              Build the Blog You've Always Wanted.
             </p>
-            <Button className="mt-8">
-              <Link href="/app">Start for free</Link>
-            </Button>
+            <Link className="mt-10" href="/write">
+              <Button size="sm">Start Writing</Button>
+            </Link>
           </div>
           {/* links */}
           <div className="mt-10 grid w-full max-w-lg grid-cols-2 gap-8 md:mt-0 lg:grid-cols-4">

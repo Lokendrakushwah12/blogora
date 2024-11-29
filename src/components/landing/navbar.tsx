@@ -18,7 +18,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
-
   const MENU_ITEMS = [
     { name: "Home", href: "/" },
     { name: "Pricing", href: "/pricing" },
@@ -145,6 +144,16 @@ const Navbar = () => {
               </Button>
             </div>
           </div>
+            <div className="flex items-center justify-center space-x-4 py-4">
+              <Link href="/blogs">
+                <Button variant="outline" size="sm" className="text-foreground">
+                  Read now
+                </Button>
+              </Link>
+              <Link href="/write">
+                <Button size="sm">Start Writing</Button>
+              </Link>
+            </div>
         </div>
       </header>
 
@@ -153,20 +162,20 @@ const Navbar = () => {
           <div className="flex flex-col items-start gap-4">
             {MENU_ITEMS.map((item) => (
               <div className="flex w-full flex-col gap-4" key={item.name}>
-               
-
                 {/* Accordion for sub-items */}
-                {!item.subItems ? ( <Link
-                  href={item.href}
-                  className="text-sm font-medium text-foreground transition-all hover:text-primary hover:underline"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>): (
+                {!item.subItems ? (
+                  <Link
+                    href={item.href}
+                    className="text-sm font-medium text-foreground transition-all hover:text-primary hover:underline"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
                   <div className="flex flex-col gap-2">
                     <Button
                       variant="link"
-                      className="flex w-full p-0 justify-between items-center text-sm text-foreground"
+                      className="flex w-full items-center justify-between p-0 text-sm text-foreground"
                       onClick={() => toggleSubMenu(item.name)}
                     >
                       <span>{item.name}</span>
@@ -181,7 +190,10 @@ const Navbar = () => {
                     {openSubMenu === item.name && (
                       <div className="ml-4 flex w-[300px] flex-col gap-2">
                         {item.subItems.map((subItem) => (
-                          <div key={subItem.name} className="flex w-full flex-col">
+                          <div
+                            key={subItem.name}
+                            className="flex w-full flex-col"
+                          >
                             <Link
                               href={subItem.href}
                               className="text-sm text-muted-foreground hover:text-primary"
