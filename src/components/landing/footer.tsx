@@ -1,13 +1,10 @@
-import { DiscIcon, Instagram, Pen, Twitter } from "lucide-react";
-import { Button } from "../ui/button";
+import {
+  GitHubLogoIcon
+} from "@radix-ui/react-icons";
+import { Pen } from "lucide-react";
 import Link from "next/link";
 import { Shell } from "../shell";
-import {
-  DiscordLogoIcon,
-  GitHubLogoIcon,
-  InstagramLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
 const Footer = () => {
   const FOOTER_LINKS = [
     {

@@ -1,8 +1,8 @@
-import { GeistSans } from "geist/font/sans";
-import { type Metadata } from "next";
 import { ThemeProvider } from "@/components/layouts/theme-provider";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import { GeistSans } from "geist/font/sans";
+import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blogora",

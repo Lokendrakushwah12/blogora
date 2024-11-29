@@ -1,16 +1,14 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { ReaderIcon } from "@radix-ui/react-icons";
 import {
   ChevronDown,
   ChevronUp,
-  GitPullRequestDraftIcon,
   Menu,
   Pen,
   PenBox,
-  PenSquare,
-  PenToolIcon,
-  XIcon,
+  XIcon
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -23,7 +21,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import { Pencil1Icon, Pencil2Icon, ReaderIcon } from "@radix-ui/react-icons";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
