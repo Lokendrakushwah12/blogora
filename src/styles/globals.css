@@ -92,3 +92,10 @@ html {
 ::selection {
   background: hsl(var(--secondary-foreground) / 0.1);
 }
+
+input:-webkit-autofill {
+  background-color: transparent !important;
+  color: inherit !important;
+  transition: background 5000s ease-in-out 0s;
+  -webkit-text-fill-color: inherit !important;
+}

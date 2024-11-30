@@ -1,8 +1,11 @@
 import { ThemeProvider } from "@/components/layouts/theme-provider";
+import { AuthProvider } from "@/context/authContext";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import Provider from "./_provider";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Mytharc",
@@ -21,11 +24,18 @@ export default function RootLayout({
     >
       <body
         className={cn(
-          "bg-background min-h-screen font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased",
           GeistSans.variable,
         )}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <Provider>
+          <AuthProvider>
+            <ThemeProvider>
+              <Toaster />
+              {children}{" "}
+            </ThemeProvider>
+          </AuthProvider>
+        </Provider>
       </body>
     </html>
   );
