@@ -1,8 +1,12 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { useAuth } from "@/context/authContext";
+import { GitHubLogoIcon, ReaderIcon } from "@radix-ui/react-icons";
+import { PenBox } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
+  const { token } = useAuth();
   return (
     <section className="container flex flex-col items-center gap-2 text-center text-foreground">
       <Link
@@ -29,12 +33,26 @@ const Hero = () => {
       </p>
 
       <div className="flex w-full items-center justify-center space-x-4 py-4">
-        <Link href="/auth/join">
-          <Button size="lg">Join now</Button>
-        </Link>
-        <Link href="/auth/login">
+        <Link href={token ? "/feed" : "/auth/login"}>
           <Button variant="outline" size="lg" className="text-foreground">
-            Log in
+            {token ? (
+              <span className="flex items-center justify-center gap-2">
+                Read <ReaderIcon />
+              </span>
+            ) : (
+              <span>Log in</span>
+            )}
+          </Button>
+        </Link>
+        <Link href={token ? "/" : "/auth/join"}>
+          <Button size="lg">
+            {token ? (
+              <span className="flex items-center justify-center gap-2">
+                Write <PenBox />
+              </span>
+            ) : (
+              <span>Join now</span>
+            )}
           </Button>
         </Link>
       </div>

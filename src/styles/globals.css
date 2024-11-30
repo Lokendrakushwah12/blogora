@@ -60,6 +60,25 @@
   body {
     @apply bg-background text-foreground;
   }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 5px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    letter-spacing: -0.09px;
+  }
 }
 
 @layer utilities {
@@ -80,13 +99,6 @@
       padding-right: 6rem;
     }
   }
-}
-
-html {
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-  letter-spacing: -0.09px;
 }
 
 ::selection {

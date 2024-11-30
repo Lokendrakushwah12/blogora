@@ -14,13 +14,16 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
+import { useAuth } from "@/context/authContext";
+import { Profile } from "../ui/profile";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+  const { token } = useAuth();
 
   const MENU_ITEMS = [
-    { name: "Community", href: "/stories" },
+    { name: "Community", href: "/feed" },
     {
       name: "Features",
       href: "/features",
@@ -130,22 +133,17 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center justify-center space-x-4 py-4">
-            <Link href="/auth/login">
+            <Link href={token ? "/feed" : "/auth/login"}>
               <Button variant="outline" size="sm" className="text-foreground">
-                <span className="hidden sm:block">Log in</span>
-                <span className="block sm:hidden">
-                  <ReaderIcon />
-                </span>
+                {token ? <ReaderIcon /> : <span>Log in</span>}
               </Button>
             </Link>
-            <Link href="/auth/join">
+            <Link href={token ? "/" : "/auth/join"}>
               <Button size="sm">
-                <span className="hidden sm:block">Join now</span>
-                <span className="block sm:hidden">
-                  <PenBox />
-                </span>
+                {token ? <PenBox /> : <span>Join now</span>}
               </Button>
             </Link>
+            {token && <Profile />}
             <Button
               className="lg:hidden"
               size="sm"

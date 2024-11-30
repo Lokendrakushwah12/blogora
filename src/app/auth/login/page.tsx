@@ -9,6 +9,7 @@ import { useSignIn } from "@/api/authApi";
 import { toast } from "sonner";
 import { useMutation } from "@tanstack/react-query";
 import Spinner from "@/components/ui/spinner";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -16,16 +17,18 @@ const Login = () => {
   const [password, setPassword] = useState<string>("");
 
   const { signIn } = useSignIn();
+  const router = useRouter();
 
   const mutation = useMutation({
     mutationFn: signIn,
     onSuccess: () => {
       toast.success("Successfully logged in! 🎉");
+      router.push("/");
     },
     // onError: (err) => {
-      // const errorMessage =
-      //   err instanceof Error ? err.message : "Login failed, please try again.";
-      // toast.error(errorMessage);
+    // const errorMessage =
+    //   err instanceof Error ? err.message : "Login failed, please try again.";
+    // toast.error(errorMessage);
     // },
   });
 

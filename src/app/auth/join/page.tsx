@@ -7,6 +7,7 @@ import Spinner from "@/components/ui/spinner";
 import { useMutation } from "@tanstack/react-query";
 import { Eye, EyeOff, Pen } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -24,16 +25,18 @@ const Join = () => {
   });
 
   const { signUp } = useSignUp();
+  const router = useRouter();
 
   const mutation = useMutation<SignUpResponse, Error, typeof formData>({
     mutationFn: (data) => signUp(data),
     onSuccess: () => {
       toast.success("Account created successfully 🎉");
+      router.push("/");
     },
     // onError: (err) => {
-      // const errorMessage =
-      //   err instanceof Error ? err.message : "Login failed, please try again.";
-      // toast.error(errorMessage);
+    // const errorMessage =
+    //   err instanceof Error ? err.message : "Login failed, please try again.";
+    // toast.error(errorMessage);
     // },
   });
 
