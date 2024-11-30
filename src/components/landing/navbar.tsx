@@ -1,8 +1,9 @@
 "use client";
 
+import { useAuth } from "@/context/authContext";
 import { cn } from "@/lib/utils";
 import { ReaderIcon } from "@radix-ui/react-icons";
-import { ChevronDown, ChevronUp, Menu, Pen, PenBox, XIcon } from "lucide-react";
+import { ChevronUp, Menu, Pen, PenBox, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
@@ -14,7 +15,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import { useAuth } from "@/context/authContext";
 import { Profile } from "../ui/profile";
 
 const Navbar = () => {
