@@ -18,7 +18,7 @@ export const apiClient = async <T>(
     throw new Error(`Failed to fetch ${endpoint}, status: ${response.status}`);
   }
 
-  const responseData: T = await response.json();
+  const responseData: T = await response.json() as T;
 
   return {
     ...responseData,
