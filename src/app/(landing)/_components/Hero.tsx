@@ -8,7 +8,7 @@ const Hero = () => {
       <Link
         target="_blank"
         rel="noreferrer"
-        href="https://github.com/Lokendrakushwah12/blogora"
+        href="https://github.com/Lokendrakushwah12/mytharc"
       >
         <div
           className="inline-flex items-center gap-2 rounded-full border border-transparent bg-secondary px-3.5 py-1.5 text-sm font-normal text-secondary-foreground transition-colors hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
@@ -20,12 +20,12 @@ const Hero = () => {
       </Link>
 
       <h1 className="text-4xl font-semibold tracking-tighter md:text-6xl lg:leading-[1.1]">
-        Build the Blog You&apos;ve Always Wanted
+        Shape Your Story, One Arc at a Time
       </h1>
 
       <p className="max-w-xl text-balance text-base text-muted-foreground sm:text-xl md:text-wrap">
-        Blogora is an open-source platform that makes it simple to create a blog
-        that&apos;s uniquely yours.
+        Mytharc is an open-source platform designed to help you create
+        immersive, interactive stories.
       </p>
 
       <div className="flex w-full items-center justify-center space-x-4 py-4">

@@ -20,7 +20,7 @@ const Navbar = () => {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
   const MENU_ITEMS = [
-    { name: "Community", href: "/blogs" },
+    { name: "Community", href: "/stories" },
     {
       name: "Features",
       href: "/features",
@@ -78,7 +78,7 @@ const Navbar = () => {
                 className="flex items-center gap-2 text-lg font-semibold text-foreground"
               >
                 <Pen className="h-5 w-auto" />
-                <span className="text-xl font-medium">Blogora</span>
+                <span className="text-xl font-medium">Mytharc</span>
               </Link>
               <div className="ml-4 hidden items-center lg:flex">
                 <NavigationMenu>

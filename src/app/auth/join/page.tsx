@@ -15,7 +15,7 @@ const Join = () => {
         <Link rel="noreferrer" href="/">
           <div className="flex items-center gap-2">
             <Pen className="h-5 w-5" />
-            <span className="text-xl font-medium">Blogora</span>
+            <span className="text-xl font-medium">Mytharc</span>
           </div>
         </Link>
 

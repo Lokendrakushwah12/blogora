@@ -15,7 +15,7 @@ const Login = () => {
         <Link rel="noreferrer" href="/">
           <div className="flex items-center gap-2">
             <Pen className="h-5 w-5" />
-            <span className="text-xl font-medium">Blogora</span>
+            <span className="text-xl font-medium">Mytharc</span>
           </div>
         </Link>
 
@@ -61,7 +61,7 @@ const Login = () => {
         <hr className="w-full" />
         <div className="flex w-full items-center justify-center space-x-4 py-4">
           <div className="text-sm text-muted-foreground">
-            New to Blogora?&nbsp;
+            New to Mytharc?&nbsp;
             <Link
               className="hover:text-foreground hover:underline"
               href="/auth/join"

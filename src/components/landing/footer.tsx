@@ -7,27 +7,18 @@ import { ThemeToggle } from "../layouts/theme-toggle";
 const Footer = () => {
   const FOOTER_LINKS = [
     {
-      title: "Product",
+      title: "Quick links",
       links: [
-        { name: "Features", href: "/features" },
-        { name: "Pricing", href: "/pricing" },
-        { name: "Integrations", href: "/integrations" },
-      ],
-    },
-    {
-      title: "Company",
-      links: [
+        { name: "Community", href: "/community" },
         { name: "About", href: "/about" },
-        { name: "Careers", href: "/careers" },
         { name: "Contact", href: "/contact" },
       ],
     },
     {
-      title: "Resources",
+      title: "Social",
       links: [
-        { name: "Blog", href: "/blog" },
-        { name: "Help Center", href: "/help" },
-        { name: "Documentation", href: "/docs" },
+        { name: "X", href: "/" },
+        { name: "GitHub", href: "/" },
       ],
     },
     {
@@ -35,8 +26,6 @@ const Footer = () => {
       links: [
         { name: "Privacy Policy", href: "/privacy" },
         { name: "Terms of Service", href: "/terms" },
-        { name: "Security", href: "/security" },
-        { name: "Extra", href: "/security" },
       ],
     },
   ];
@@ -48,7 +37,7 @@ const Footer = () => {
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-2">
               <Pen className="h-5 w-5" />
-              <span className="text-xl font-medium">Blogora</span>
+              <span className="text-xl font-medium">Mytharc</span>
             </div>
             <p className="max-w mt-4 text-base">
               Build the Blog You&apos;ve Always Wanted.
@@ -58,9 +47,9 @@ const Footer = () => {
             </Link>
           </div>
           {/* links */}
-          <div className="mt-10 grid w-full max-w-lg grid-cols-2 gap-8 md:mt-0 lg:grid-cols-4">
+          <div className="mt-10 grid w-full max-w-lg grid-cols-2 gap-2 md:mt-0 lg:grid-cols-4">
             {FOOTER_LINKS?.map((section, index) => (
-              <div key={index} className="flex flex-col gap-4">
+              <div key={index} className="flex w-full flex-col gap-4">
                 <h4 className="text-base font-medium">{section.title}</h4>
                 <ul className="w-full space-y-4">
                   {section.links.map((link, index) => (
@@ -78,6 +67,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
+        <hr className="w-full" />
         <div className="relative flex items-center justify-between">
           <p className="text-sm font-[400] text-muted-foreground">
             Built by&nbsp;
