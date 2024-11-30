@@ -31,8 +31,8 @@ const Join = () => {
       toast.success("Account created successfully 🎉");
     },
     onError: (err) => {
-      const errorMessage =
-        err instanceof Error ? err.message : "Login failed, please try again.";
+      // const errorMessage =
+      //   err instanceof Error ? err.message : "Login failed, please try again.";
       // toast.error(errorMessage);
     },
   });

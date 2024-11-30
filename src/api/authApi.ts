@@ -1,4 +1,4 @@
-import { signinInput, signupInput } from "@blogora/common";
+import type { signinInput, signupInput } from "@blogora/common";
 import { apiClient } from "./apiClient";
 import { useAuth } from "@/context/authContext";
 

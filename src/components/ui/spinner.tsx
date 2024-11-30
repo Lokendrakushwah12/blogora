@@ -1,4 +1,4 @@
-const Spinner = ({ color = "#919191" }) => {
+const Spinner = () => {
   const bars = Array(12).fill(0);
 
   return (

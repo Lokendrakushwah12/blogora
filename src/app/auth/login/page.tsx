@@ -23,8 +23,8 @@ const Login = () => {
       toast.success("Successfully logged in! 🎉");
     },
     onError: (err) => {
-      const errorMessage =
-        err instanceof Error ? err.message : "Login failed, please try again.";
+      // const errorMessage =
+      //   err instanceof Error ? err.message : "Login failed, please try again.";
       // toast.error(errorMessage);
     },
   });
