@@ -30,11 +30,11 @@ const Join = () => {
     onSuccess: () => {
       toast.success("Account created successfully 🎉");
     },
-    onError: (err) => {
+    // onError: (err) => {
       // const errorMessage =
       //   err instanceof Error ? err.message : "Login failed, please try again.";
       // toast.error(errorMessage);
-    },
+    // },
   });
 
   const { mutate, status, error } = mutation;

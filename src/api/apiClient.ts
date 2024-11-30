@@ -4,7 +4,7 @@ export const apiClient = async <T>(
   endpoint: string,
   token: string | null,
   options: RequestInit = {},
-): Promise<T> => {
+): Promise<T & { status: number }> => {
   const response = await fetch(`${BASE_URL}${endpoint}`, {
     ...options,
     headers: {
@@ -14,7 +14,11 @@ export const apiClient = async <T>(
     },
   });
 
-  const responseData = await response.json();
+  if (!response.ok) {
+    throw new Error(`Failed to fetch ${endpoint}, status: ${response.status}`);
+  }
+
+  const responseData: T = await response.json();
 
   return {
     ...responseData,

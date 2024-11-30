@@ -22,11 +22,11 @@ const Login = () => {
     onSuccess: () => {
       toast.success("Successfully logged in! 🎉");
     },
-    onError: (err) => {
+    // onError: (err) => {
       // const errorMessage =
       //   err instanceof Error ? err.message : "Login failed, please try again.";
       // toast.error(errorMessage);
-    },
+    // },
   });
 
   const { status, error } = mutation;
