@@ -1,9 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/authContext";
+import { Dialog } from "@radix-ui/react-dialog";
 import { GitHubLogoIcon, ReaderIcon } from "@radix-ui/react-icons";
 import { PenBox } from "lucide-react";
 import Link from "next/link";
+import { DialogDemo } from "./DialogDemo";
 
 const Hero = () => {
   const { token } = useAuth();
@@ -56,6 +58,7 @@ const Hero = () => {
           </Button>
         </Link>
       </div>
+      <DialogDemo/>
     </section>
   );
 };

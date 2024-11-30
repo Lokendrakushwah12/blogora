@@ -66,15 +66,15 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <div className="relative h-full w-full">
+    <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-[100] transform border-b bg-background/90 backdrop-blur-lg",
+          "sticky inset-x-0 top-0 z-[100] transform border-b bg-background/90 backdrop-blur-lg",
           isOpen ? "h-[calc(100%-24px)]" : "h-16",
         )}
       >
         <div className="container flex h-16 w-full items-center justify-center">
-          <div className="sticky inset-x-0 flex w-full items-center justify-between">
+          <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-6 lg:flex-none">
               <Link
                 href="/"
@@ -135,12 +135,16 @@ const Navbar = () => {
           <div className="flex items-center justify-center space-x-4 py-4">
             <Link href={token ? "/feed" : "/auth/login"}>
               <Button variant="outline" size="sm" className="text-foreground">
-                {token ? <ReaderIcon /> : <span>Log in</span>}
+                {token ? (
+                  <ReaderIcon />
+                ) : (
+                  <span className="text-sm">Log in</span>
+                )}
               </Button>
             </Link>
             <Link href={token ? "/" : "/auth/join"}>
               <Button size="sm">
-                {token ? <PenBox /> : <span>Join now</span>}
+                {token ? <PenBox /> : <span className="text-sm">Join now</span>}
               </Button>
             </Link>
             {token && <Profile />}
@@ -178,15 +182,13 @@ const Navbar = () => {
                   <div className="flex flex-col gap-2">
                     <Button
                       variant="link"
-                      className="flex w-full items-center justify-between p-0 text-sm text-foreground"
+                      className="flex h-fit w-full items-center justify-between p-0 text-sm text-foreground"
                       onClick={() => toggleSubMenu(item.name)}
                     >
                       <span>{item.name}</span>
-                      {openSubMenu === item.name ? (
-                        <ChevronUp className="h-4 w-4" />
-                      ) : (
-                        <ChevronDown className="h-4 w-4" />
-                      )}
+                      <ChevronUp
+                        className={`h-4 w-4 transition-all ${openSubMenu ? "-rotate-180" : "rotate-0"} `}
+                      />
                     </Button>
 
                     {/* Show sub-items if the submenu is open */}
@@ -216,7 +218,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
