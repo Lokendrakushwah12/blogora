@@ -2,14 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { ReaderIcon } from "@radix-ui/react-icons";
-import {
-  ChevronDown,
-  ChevronUp,
-  Menu,
-  Pen,
-  PenBox,
-  XIcon
-} from "lucide-react";
+import { ChevronDown, ChevronUp, Menu, Pen, PenBox, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
@@ -27,11 +20,7 @@ const Navbar = () => {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
   const MENU_ITEMS = [
-    { name: "Home", href: "/" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "Integrations", href: "/integrations" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Community", href: "/blogs" },
     {
       name: "Features",
       href: "/features",
@@ -53,6 +42,8 @@ const Navbar = () => {
         },
       ],
     },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const toggleSubMenu = (name: string) => {
@@ -139,17 +130,17 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center justify-center space-x-4 py-4">
-            <Link href="/blogs">
+            <Link href="/auth/login">
               <Button variant="outline" size="sm" className="text-foreground">
-                <span className="hidden sm:block">Read now</span>
+                <span className="hidden sm:block">Log in</span>
                 <span className="block sm:hidden">
                   <ReaderIcon />
                 </span>
               </Button>
             </Link>
-            <Link href="/write">
+            <Link href="/auth/join">
               <Button size="sm">
-                <span className="hidden sm:block">Start Writing</span>
+                <span className="hidden sm:block">Join now</span>
                 <span className="block sm:hidden">
                   <PenBox />
                 </span>

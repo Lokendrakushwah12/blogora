@@ -29,12 +29,12 @@ const Hero = () => {
       </p>
 
       <div className="flex w-full items-center justify-center space-x-4 py-4">
-        <Link href="/write">
-          <Button size="lg">Start Writing</Button>
+        <Link href="/auth/join">
+          <Button size="lg">Join now</Button>
         </Link>
-        <Link href="/blogs">
+        <Link href="/auth/login">
           <Button variant="outline" size="lg" className="text-foreground">
-            Read now
+            Log in
           </Button>
         </Link>
       </div>

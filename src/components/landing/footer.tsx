@@ -3,6 +3,7 @@ import { Pen } from "lucide-react";
 import Link from "next/link";
 import { Shell } from "../shell";
 import { Button } from "../ui/button";
+import { ThemeToggle } from "../layouts/theme-toggle";
 const Footer = () => {
   const FOOTER_LINKS = [
     {
@@ -52,8 +53,8 @@ const Footer = () => {
             <p className="max-w mt-4 text-base">
               Build the Blog You&apos;ve Always Wanted.
             </p>
-            <Link className="mt-10" href="/write">
-              <Button size="sm">Start Writing</Button>
+            <Link className="mt-10" href="/auth/join">
+              <Button size="sm">Join now</Button>
             </Link>
           </div>
           {/* links */}
@@ -98,6 +99,7 @@ const Footer = () => {
             >
               <GitHubLogoIcon className="h-5 w-5 text-muted-foreground hover:text-secondary-foreground" />
             </Link>
+            <ThemeToggle />
             {/* <Link href="#" className="p-1">
               <TwitterLogoIcon className="h-5 w-5 text-muted-foreground hover:text-secondary-foreground" />
             </Link>
