@@ -11,11 +11,13 @@ import { useAuth } from "@/context/authContext";
 import { ReaderIcon } from "@radix-ui/react-icons";
 import { Bookmark, Heart } from "lucide-react";
 import Image from "next/image";
+import { toast } from "sonner";
 
 export function Profile() {
   const { logout } = useAuth();
   const handleLogout = () => {
     logout();
+    toast.success("Logged out successfully");
   };
 
   return (
