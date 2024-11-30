@@ -1,6 +1,4 @@
-import {
-  GitHubLogoIcon
-} from "@radix-ui/react-icons";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Pen } from "lucide-react";
 import Link from "next/link";
 import { Shell } from "../shell";
@@ -52,7 +50,7 @@ const Footer = () => {
               <span className="text-xl font-medium">Blogora</span>
             </div>
             <p className="max-w mt-4 text-base">
-              Build the Blog You've Always Wanted.
+              Build the Blog You&apos;ve Always Wanted.
             </p>
             <Link className="mt-10" href="/write">
               <Button size="sm">Start Writing</Button>

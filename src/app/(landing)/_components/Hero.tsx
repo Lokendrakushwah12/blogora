@@ -25,7 +25,7 @@ const Hero = () => {
 
       <p className="max-w-xl text-balance text-base text-muted-foreground sm:text-xl md:text-wrap">
         Blogora is an open-source platform that makes it simple to create a blog
-        that's uniquely yours.
+        that&apos;s uniquely yours.
       </p>
 
       <div className="flex w-full items-center justify-center space-x-4 py-4">
