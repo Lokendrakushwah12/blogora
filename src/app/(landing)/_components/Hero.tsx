@@ -8,7 +8,7 @@ const Hero = () => {
       <Link
         target="_blank"
         rel="noreferrer"
-        href="https://github.com/Lokendrakushwah12/mytharc"
+        href="https://github.com/Lokendrakushwah12/myth-arc"
       >
         <div
           className="inline-flex items-center gap-2 rounded-full border border-transparent bg-secondary px-3.5 py-1.5 text-sm font-normal text-secondary-foreground transition-colors hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
@@ -24,7 +24,7 @@ const Hero = () => {
       </h1>
 
       <p className="max-w-xl text-balance text-base text-muted-foreground sm:text-xl md:text-wrap">
-        Mytharc is an open-source platform designed to help you create
+        myth-arc is an open-source platform designed to help you create
         immersive, interactive stories.
       </p>
 

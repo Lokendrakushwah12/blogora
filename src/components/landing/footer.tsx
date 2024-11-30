@@ -36,11 +36,11 @@ const Footer = () => {
           {/* logo */}
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-2">
-              <Pen className="h-5 w-5" />
-              <span className="text-xl font-medium">Mytharc</span>
+              <Pen className="h-4 w-auto" />
+              <span className="text-base font-medium">myth-arc</span>
             </div>
             <p className="max-w mt-4 text-base">
-              Build the Blog You&apos;ve Always Wanted.
+              Shape Your Story, One Arc at a Time
             </p>
             <Link className="mt-10" href="/auth/join">
               <Button size="sm">Join now</Button>

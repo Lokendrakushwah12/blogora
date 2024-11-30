@@ -77,8 +77,8 @@ const Navbar = () => {
                 href="/"
                 className="flex items-center gap-2 text-lg font-semibold text-foreground"
               >
-                <Pen className="h-5 w-auto" />
-                <span className="text-xl font-medium">Mytharc</span>
+                <Pen className="h-4 w-auto" />
+                <span className="text-base font-medium">myth-arc</span>
               </Link>
               <div className="ml-4 hidden items-center lg:flex">
                 <NavigationMenu>
