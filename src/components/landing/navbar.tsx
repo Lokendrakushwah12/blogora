@@ -134,13 +134,11 @@ const Navbar = () => {
           </div>
           <div className="flex items-center justify-center space-x-4 py-4">
             <Link href={token ? "/feed" : "/auth/login"}>
-              <Button variant="outline" size="sm" className="text-foreground">
-                {token ? (
-                  <ReaderIcon />
-                ) : (
+              {!token && (
+                <Button variant="outline" size="sm" className="text-foreground">
                   <span className="text-sm">Log in</span>
-                )}
-              </Button>
+                </Button>
+              )}
             </Link>
             <Link href={token ? "/" : "/auth/join"}>
               <Button size="sm">

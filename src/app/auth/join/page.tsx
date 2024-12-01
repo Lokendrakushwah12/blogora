@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Spinner from "@/components/ui/spinner";
+import useAuthRedirect from "@/hooks/useAuthRedirect";
 import { useMutation } from "@tanstack/react-query";
 import { Eye, EyeOff, Pen } from "lucide-react";
 import Link from "next/link";
@@ -17,6 +18,7 @@ interface SignUpResponse {
 }
 
 const Join = () => {
+  useAuthRedirect();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     name: "",

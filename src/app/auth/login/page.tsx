@@ -10,8 +10,10 @@ import { toast } from "sonner";
 import { useMutation } from "@tanstack/react-query";
 import Spinner from "@/components/ui/spinner";
 import { useRouter } from "next/navigation";
+import useAuthRedirect from "@/hooks/useAuthRedirect";
 
 const Login = () => {
+  useAuthRedirect();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
