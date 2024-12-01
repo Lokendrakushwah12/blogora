@@ -12,11 +12,12 @@ import { useAuth } from "@/context/authContext";
 import { ReaderIcon } from "@radix-ui/react-icons";
 import { Bookmark, Heart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { toast } from "sonner";
 
 export function Profile() {
   const { logout, token } = useAuth();
-  const { data: user, isLoading, isError } = useUserDetails(token);
+  const { data: user } = useUserDetails(token);
 
   const handleLogout = () => {
     logout();
@@ -60,11 +61,21 @@ export function Profile() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="cursor-pointer text-muted-foreground/60">
-          Account
+        <DropdownMenuItem asChild>
+          <Link
+            href="/account"
+            className="cursor-pointer text-muted-foreground/60"
+          >
+            Account
+          </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem className="cursor-pointer text-muted-foreground/60">
-          Edit Profile
+        <DropdownMenuItem asChild>
+          <Link
+            href="/account"
+            className="cursor-pointer text-muted-foreground/60"
+          >
+            Edit Profile
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer text-muted-foreground/60"
