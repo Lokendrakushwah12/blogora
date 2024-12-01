@@ -1,5 +1,4 @@
 "use client";
-import { useTheme } from "next-themes";
 import {
   Card,
   CardContent,
@@ -9,7 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Monitor, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { useEffect } from "react";
 
 const Preferences = () => {

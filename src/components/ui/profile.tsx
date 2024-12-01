@@ -39,7 +39,7 @@ export function Profile() {
               width={15}
               height={15}
             />{" "}
-            {user?.name || "Anonymous"}
+            {user?.name ?? "Anonymous"}
           </DropdownMenuItem>
           <DropdownMenuItem
             disabled

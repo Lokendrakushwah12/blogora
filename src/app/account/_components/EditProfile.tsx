@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React from "react";
 
 const EditProfile = () => {
   return (
@@ -18,7 +17,7 @@ const EditProfile = () => {
         <CardHeader>
           <CardTitle>Edit profile</CardTitle>
           <CardDescription>
-            Update your profile information here. Click save when you're done.
+            Update your profile information here. Click save when you&apos;re done.
           </CardDescription>
         </CardHeader>
         <CardContent className="w-full space-y-2">
