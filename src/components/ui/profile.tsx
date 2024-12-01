@@ -1,4 +1,5 @@
 "use client";
+import { useUserDetails } from "@/api/userDetailsApi";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +15,9 @@ import Image from "next/image";
 import { toast } from "sonner";
 
 export function Profile() {
-  const { logout } = useAuth();
+  const { logout, token } = useAuth();
+  const { data: user, isLoading, isError } = useUserDetails(token);
+
   const handleLogout = () => {
     logout();
     toast.success("Logged out successfully");
@@ -35,7 +38,7 @@ export function Profile() {
               width={15}
               height={15}
             />{" "}
-            Your Name
+            {user?.name || "Anonymous"}
           </DropdownMenuItem>
           <DropdownMenuItem
             disabled
