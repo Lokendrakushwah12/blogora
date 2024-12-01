@@ -47,7 +47,7 @@ const Preferences = () => {
 
             <RadioGroup
               className="flex w-full flex-col"
-              value={theme || "light"}
+              value={theme ?? "light"}
             >
               {items.map((item) => (
                 <div
