@@ -1,29 +1,70 @@
-# Create T3 App
+# [myth-arc](https://myth-arc.vercel.app/)
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-## What's next? How do I make an app with this?
+**Mytharc** is an open-source platform for storytellers and creators to write stories. Built with the latest advancements in Next.js 15. The project is bootstrapped using `create-t3-app`.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+> 🚧 **Warning**: This project is still in development and is not ready for production use.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## 🚀 Tech Stack
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- **Frontend Framework:** [Next.js](https://nextjs.org) (v15)
+- **Data Fetching & State Management:** [TanStack Query (React Query)](https://tanstack.com/query)
+- **Language:** [TypeScript](https://www.typescriptlang.org)
+- **Backend Framework:** [Hono](https://hono.dev/docs/)
+- **Database:** [PostgreSQL](https://www.postgresql.org/docs/)
+- **ORM:** [Prisma ORM](https://www.prisma.io/docs/getting-started)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com)
+- **Validation:** [Zod](https://zod.dev)
 
-## Learn More
+## 🛠️ Features in Progress
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- [x] Authentication API integration
+- [x] Database ORM with **Prisma**
+- [x] Input validation using **Zod**
+- [ ] File uploads using **uploadthing**
+- [ ] Blog integration with **MDX**
+- [ ] User profiles with features like likes and bookmarks
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## 🌟 How to Run Locally
+Follow these steps to set up **Mytharc** on your local machine:
 
-## How do I deploy this?
+1. Clone the repository
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+   ```bash
+   git clone https://github.com/lokendrakushwah12/myth-arc.git
+   ```
+
+2. Install dependencies using pnpm
+
+   ```bash
+   npm install
+   ```
+
+3. Copy the `.env.example` to `.env` and update the variables.
+
+4. Start the development server
+
+   ```bash
+   npm run dev
+   ```
+
+5. Push the database schema
+
+   ```bash
+   npm run db:push
+   ```
+
+## 💡 Contributing
+Contributions are highly encouraged! Here's how you can get involved:
+
+- Report issues or bugs via [GitHub Issues](https://github.com/lokendrakushwah12/myth-arc/issues).
+- Share feature requests or ideas.
+- Open a pull request to contribute code or improvements.
+
+Check out the [CONTRIBUTING.md](./CONTRIBUTING.md) guide for detailed instructions.
+
+## License
+
+Licensed under the MIT License. Check the [LICENSE](./LICENSE.md) file for details.
