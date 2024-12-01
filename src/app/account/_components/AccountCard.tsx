@@ -1,3 +1,5 @@
+"use client";
+import { useUserDetails } from "@/api/userDetailsApi";
 import {
   Card,
   CardContent,
@@ -7,8 +9,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { useAuth } from "@/context/authContext";
 
 const AccountCard = () => {
+  const { token } = useAuth();
+  const { data: user } = useUserDetails(token);
+
   return (
     <Card className="flex flex-col items-center justify-start outline-0">
       <div className="w-full max-w-lg">
@@ -21,16 +27,18 @@ const AccountCard = () => {
         <CardContent className="w-full space-y-2">
           <div className="place-items-start space-y-1">
             <Label htmlFor="name">Name</Label>
-            <div className="h-9 border w-full text-start rounded-md text-sm flex p-3 bg-accent/10 text-muted-foreground items-center">Pedro Duarte</div>
+            <div className="flex h-9 w-full items-center rounded-md border bg-accent/10 p-3 text-start text-sm text-muted-foreground">
+              {user?.name ?? "Loading..."}
+            </div>
           </div>
           <div className="place-items-start space-y-1">
             <Label htmlFor="email">Email</Label>
-            <div className="h-9 border w-full text-start rounded-md text-sm flex p-3 bg-accent/10 text-muted-foreground items-center">peduarte@example.com</div>
+            <div className="flex h-9 w-full items-center rounded-md border bg-accent/10 p-3 text-start text-sm text-muted-foreground">
+              {user?.email ?? "Loading..."}
+            </div>
           </div>
         </CardContent>
-        <CardFooter>
-          {/* <Button>Save changes</Button> */}
-        </CardFooter>
+        <CardFooter>{/* <Button>Save changes</Button> */}</CardFooter>
       </div>
     </Card>
   );
