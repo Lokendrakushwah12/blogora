@@ -55,10 +55,14 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
   }, [initialValue]);
 
   const isContentEmpty = (content: JSONContent) => {
-    return (
-      !content?.content?.[0]?.content?.length ||
-      !content?.content?.[0]?.content?.[0]?.text?.trim()
-    );
+    if (
+      content?.content?.[0]?.content?.[0]?.text?.length &&
+      content?.content?.[0]?.content?.[0]?.text?.length > 0
+    )
+      return false;
+    else if (content?.content?.length && content?.content?.length > 1)
+      return false;
+    return true;
   };
 
   const handleEditorUpdate = ({ editor }: { editor: EditorInstance }) => {
@@ -67,10 +71,8 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
     onChange(content);
   };
 
-  console.log(isContentEmpty(editorContent));
-
   return (
-    <div className="relative w-full">
+    <div className="relative w-full text-muted-foreground">
       <EditorRoot>
         {isContentEmpty(editorContent) && (
           <div className="pointer-events-none absolute text-muted-foreground">

@@ -54,7 +54,7 @@ export default function ContentForm() {
           placeholder="Story Title..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="h-full w-full overflow-visible border-0 bg-transparent p-0 text-4xl font-semibold focus-visible:ring-0"
+          className="h-full w-full overflow-visible rounded-none border-0 bg-transparent p-0 text-4xl font-semibold shadow-none focus-visible:ring-0"
         />
       </div>
       <Editor
