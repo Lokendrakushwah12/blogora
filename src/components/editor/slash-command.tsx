@@ -159,13 +159,13 @@ export const suggestionItems = createSuggestionItems([
         /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/,
       );
 
-      if (ytregex.test(videoLink as string)) {
+      if (ytregex.test(videoLink!)) {
         editor
           .chain()
           .focus()
           .deleteRange(range)
           .setYoutubeVideo({
-            src: videoLink as string,
+            src: videoLink!,
           })
           .run();
       } else {
@@ -186,13 +186,13 @@ export const suggestionItems = createSuggestionItems([
         /^https?:\/\/(www\.)?x\.com\/([a-zA-Z0-9_]{1,15})(\/status\/(\d+))?(\/\S*)?$/,
       );
 
-      if (tweetRegex.test(tweetLink as string)) {
+      if (tweetRegex.test(tweetLink!)) {
         editor
           .chain()
           .focus()
           .deleteRange(range)
           .setTweet({
-            src: tweetLink as string,
+            src: tweetLink!,
           })
           .run();
       } else {

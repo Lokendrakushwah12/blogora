@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import { createBlogAction } from '@/lib/actions'
-
 import Editor from "@/components/editor/editor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+
+type Content = {
+  type: string;
+  content: Array<{ type: string; content: any[] }>;
+};
 
 export const defaultValue = {
   type: "doc",
@@ -29,11 +32,11 @@ export default function ContentForm() {
     if (savedTitle) setTitle(savedTitle);
     if (savedContent) {
       try {
-        const parsedContent = JSON.parse(savedContent);
-        setContent(parsedContent); // Set content as an object
+        const parsedContent = JSON.parse(savedContent) as Content;
+        setContent(parsedContent);
       } catch (e) {
         console.error("Failed to parse saved content", e);
-        setContent(defaultValue); // Default value in case of error
+        setContent(defaultValue);
       }
     }
   }, []);
@@ -42,13 +45,6 @@ export default function ContentForm() {
     if (title) localStorage.setItem("title", title);
     if (content) localStorage.setItem("content", JSON.stringify(content));
   }, [title, content]);
-
-  useEffect(() => {
-    const name = title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)+/g, "");
-  }, [title]);
 
   async function handleSubmit() {
     // TODO: validate the data

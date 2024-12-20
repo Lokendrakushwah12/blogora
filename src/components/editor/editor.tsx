@@ -26,8 +26,7 @@ import EditorMenu from "./editor-menu";
 import { uploadFn } from "./image-upload";
 import { defaultExtensions } from "./extensions";
 import { slashCommand, suggestionItems } from "./slash-command";
-
-const hljs = require("highlight.js");
+import hljs from "highlight.js";
 
 const extensions = [...defaultExtensions, slashCommand];
 
@@ -72,7 +71,7 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
   const highlightCodeblocks = (content: string) => {
     const doc = new DOMParser().parseFromString(content, "text/html");
     doc.querySelectorAll("pre code").forEach((el) => {
-      // @ts-ignore
+      // @ts-expect-error
       hljs.highlightElement(el);
     });
     return new XMLSerializer().serializeToString(doc);
@@ -89,7 +88,7 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
       <EditorRoot>
         {isContentEmpty(editorContent) && (
           <div className="pointer-events-none absolute text-muted-foreground">
-            Press '/' for commands
+            Press &apos;/&apos; for commands
           </div>
         )}
         <EditorContent

@@ -2,7 +2,6 @@
 
 import { useAuth } from "@/context/authContext";
 import { cn } from "@/lib/utils";
-import { ReaderIcon } from "@radix-ui/react-icons";
 import { ChevronUp, Menu, Pen, PenBox, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";

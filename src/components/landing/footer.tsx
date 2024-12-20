@@ -1,9 +1,9 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Pen } from "lucide-react";
 import Link from "next/link";
+import { ThemeToggle } from "../layouts/theme-toggle";
 import { Shell } from "../shell";
 import { Button } from "../ui/button";
-import { ThemeToggle } from "../layouts/theme-toggle";
 const Footer = () => {
   const FOOTER_LINKS = [
     {
