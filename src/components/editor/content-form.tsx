@@ -1,16 +1,10 @@
-"use client";
-
 import { useEffect, useState } from "react";
+import { JSONContent as TiptapJSONContent } from "@tiptap/core";
 import Editor from "@/components/editor/editor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-type Content = {
-  type: string;
-  content: Array<{ type: string; content: any[] }>;
-};
-
-export const defaultValue = {
+export const defaultValue: TiptapJSONContent = {
   type: "doc",
   content: [
     {
@@ -22,7 +16,7 @@ export const defaultValue = {
 
 export default function ContentForm() {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState<any>("");
+  const [content, setContent] = useState<TiptapJSONContent>(defaultValue);
   const [pending, setPending] = useState(false);
 
   useEffect(() => {
@@ -32,7 +26,7 @@ export default function ContentForm() {
     if (savedTitle) setTitle(savedTitle);
     if (savedContent) {
       try {
-        const parsedContent = JSON.parse(savedContent) as Content;
+        const parsedContent = JSON.parse(savedContent) as TiptapJSONContent;
         setContent(parsedContent);
       } catch (e) {
         console.error("Failed to parse saved content", e);
@@ -47,16 +41,8 @@ export default function ContentForm() {
   }, [title, content]);
 
   async function handleSubmit() {
-    // TODO: validate the data
-
     setPending(true);
-
     // const result = await createBlogAction({ title, slug, content })
-
-    // if (result?.error) {
-    //   toast.error(result.error)
-    // }
-
     setPending(false);
   }
 
@@ -71,8 +57,10 @@ export default function ContentForm() {
           className="h-full w-full overflow-visible border-0 bg-transparent p-0 text-4xl font-semibold focus-visible:ring-0"
         />
       </div>
-
-      <Editor initialValue={defaultValue} onChange={setContent} />
+      <Editor
+        initialValue={defaultValue}
+        onChange={(content: TiptapJSONContent) => setContent(content)}
+      />
       <Button onClick={handleSubmit} disabled={pending}>
         {pending ? "Submitting..." : "Create"}
       </Button>

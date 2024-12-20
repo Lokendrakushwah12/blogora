@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import {
   EditorCommand,
@@ -11,22 +9,20 @@ import {
   EditorRoot,
   type JSONContent,
 } from "novel";
-
 import { ImageResizer, handleCommandNavigation } from "novel/extensions";
 import { handleImageDrop, handleImagePaste } from "novel/plugins";
-
 import { TextButtons } from "@/components/editor/selectors/text-buttons";
 import { LinkSelector } from "@/components/editor/selectors/link-selector";
 import { NodeSelector } from "@/components/editor/selectors/node-selector";
 import { MathSelector } from "@/components/editor/selectors/math-selector";
 import { ColorSelector } from "@/components/editor/selectors/color-selector";
-
 import { Separator } from "@/components/ui/separator";
 import EditorMenu from "./editor-menu";
 import { uploadFn } from "./image-upload";
 import { defaultExtensions } from "./extensions";
 import { slashCommand, suggestionItems } from "./slash-command";
 import hljs from "highlight.js";
+import { JSONContent as TiptapJSONContent } from "@tiptap/core";
 
 const extensions = [...defaultExtensions, slashCommand];
 
@@ -41,8 +37,12 @@ export const defaultEditorContent: JSONContent = {
 };
 
 interface EditorProps {
-  initialValue?: JSONContent;
-  onChange: (content: string) => void;
+  initialValue?: TiptapJSONContent;
+  onChange: (content: TiptapJSONContent) => void; // Use the imported TiptapJSONContent type
+}
+
+interface Block {
+  content?: Array<any>;
 }
 
 export default function Editor({ initialValue, onChange }: EditorProps) {
@@ -53,8 +53,6 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
   const [editorContent, setEditorContent] =
     useState<JSONContent>(defaultEditorContent);
 
-  //   console.log("editorContent", editorContent);
-
   useEffect(() => {
     if (initialValue) {
       setEditorContent(initialValue);
@@ -64,23 +62,13 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
   const isContentEmpty = (content: JSONContent) => {
     return (
       !content?.content?.length ||
-      content.content.every((block: any) => !block.content?.length)
+      content.content.every((block: Block) => !block.content?.length)
     );
   };
 
-  const highlightCodeblocks = (content: string) => {
-    const doc = new DOMParser().parseFromString(content, "text/html");
-    doc.querySelectorAll("pre code").forEach((el) => {
-      // @ts-expect-error
-      hljs.highlightElement(el);
-    });
-    return new XMLSerializer().serializeToString(doc);
-  };
-
   const handleEditorUpdate = ({ editor }: { editor: EditorInstance }) => {
-    const content = editor.getHTML();
-    setEditorContent(editor.getJSON());
-    onChange(content);
+    const content = editor.getJSON(); // Use getJSON to get the JSON representation of the editor content
+    onChange(content); // Pass the JSONContent to the onChange handler
   };
 
   return (
