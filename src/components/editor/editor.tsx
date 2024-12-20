@@ -37,11 +37,7 @@ export const defaultEditorContent: JSONContent = {
 
 interface EditorProps {
   initialValue?: TiptapJSONContent;
-  onChange: (content: TiptapJSONContent) => void; // Use the imported TiptapJSONContent type
-}
-
-interface Block {
-  content?: Array<unknown>;
+  onChange: (content: TiptapJSONContent) => void;
 }
 
 export default function Editor({ initialValue, onChange }: EditorProps) {
@@ -60,15 +56,18 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
 
   const isContentEmpty = (content: JSONContent) => {
     return (
-      !content?.content?.length ||
-      content.content.every((block: Block) => !block.content?.length)
+      !content?.content?.[0]?.content?.length ||
+      !content?.content?.[0]?.content?.[0]?.text?.trim()
     );
   };
 
   const handleEditorUpdate = ({ editor }: { editor: EditorInstance }) => {
-    const content = editor.getJSON(); // Use getJSON to get the JSON representation of the editor content
-    onChange(content); // Pass the JSONContent to the onChange handler
+    const content = editor.getJSON();
+    setEditorContent(content);
+    onChange(content);
   };
+
+  console.log(isContentEmpty(editorContent));
 
   return (
     <div className="relative w-full">
