@@ -1,4 +1,10 @@
-import { useEffect, useState } from "react";
+import { ColorSelector } from "@/components/editor/selectors/color-selector";
+import { LinkSelector } from "@/components/editor/selectors/link-selector";
+import { MathSelector } from "@/components/editor/selectors/math-selector";
+import { NodeSelector } from "@/components/editor/selectors/node-selector";
+import { TextButtons } from "@/components/editor/selectors/text-buttons";
+import { Separator } from "@/components/ui/separator";
+import type { JSONContent as TiptapJSONContent } from "@tiptap/core";
 import {
   EditorCommand,
   EditorCommandEmpty,
@@ -11,18 +17,11 @@ import {
 } from "novel";
 import { ImageResizer, handleCommandNavigation } from "novel/extensions";
 import { handleImageDrop, handleImagePaste } from "novel/plugins";
-import { TextButtons } from "@/components/editor/selectors/text-buttons";
-import { LinkSelector } from "@/components/editor/selectors/link-selector";
-import { NodeSelector } from "@/components/editor/selectors/node-selector";
-import { MathSelector } from "@/components/editor/selectors/math-selector";
-import { ColorSelector } from "@/components/editor/selectors/color-selector";
-import { Separator } from "@/components/ui/separator";
+import { useEffect, useState } from "react";
 import EditorMenu from "./editor-menu";
-import { uploadFn } from "./image-upload";
 import { defaultExtensions } from "./extensions";
+import { uploadFn } from "./image-upload";
 import { slashCommand, suggestionItems } from "./slash-command";
-import hljs from "highlight.js";
-import { JSONContent as TiptapJSONContent } from "@tiptap/core";
 
 const extensions = [...defaultExtensions, slashCommand];
 

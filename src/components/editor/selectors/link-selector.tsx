@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
 import { Check, Trash } from "lucide-react";
 import { useEditor } from "novel";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
 import { PopoverContent } from "@/components/ui/popover";
@@ -41,6 +41,8 @@ export const LinkSelector = ({ open, onOpenChange }: LinkSelectorProps) => {
 
   if (!editor) return null;
 
+  const attributes = editor.getAttributes("link") as { href?: string };
+
   return (
     <Popover modal={true} open={open} onOpenChange={onOpenChange}>
       <PopoverTrigger asChild>
@@ -79,7 +81,7 @@ export const LinkSelector = ({ open, onOpenChange }: LinkSelectorProps) => {
             type="text"
             placeholder="Paste a link"
             className="flex-1 bg-background p-1 text-sm outline-none"
-            defaultValue={editor.getAttributes("link")?.href ?? ""}
+            defaultValue={attributes.href ?? ""}
           />
 
           {editor.getAttributes("link").href ? (

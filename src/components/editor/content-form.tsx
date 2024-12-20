@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { JSONContent as TiptapJSONContent } from "@tiptap/core";
 import Editor from "@/components/editor/editor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import type { JSONContent as TiptapJSONContent } from "@tiptap/core";
+import { useEffect, useState } from "react";
 
 export const defaultValue: TiptapJSONContent = {
   type: "doc",
