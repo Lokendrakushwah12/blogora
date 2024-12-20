@@ -42,7 +42,7 @@ interface EditorProps {
 }
 
 interface Block {
-  content?: Array<any>;
+  content?: Array<unknown>;
 }
 
 export default function Editor({ initialValue, onChange }: EditorProps) {

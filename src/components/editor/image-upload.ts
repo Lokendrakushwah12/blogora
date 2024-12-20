@@ -16,7 +16,10 @@ const onUpload = (file: File): Promise<string | File> => {
       promise
         .then(async (res) => {
           if (res.status === 200) {
-            const { url }: { url: string } = await res.json();
+            const { url }: { url: string } = (await res.json()) as {
+              url: string;
+            };
+
             const image = new Image();
             image.src = url;
             image.onload = () => {
@@ -32,7 +35,7 @@ const onUpload = (file: File): Promise<string | File> => {
           }
         })
         .catch((error) => {
-          reject(error);
+          reject(new Error(String(error)));
         }),
       {
         loading: "Uploading image...",
