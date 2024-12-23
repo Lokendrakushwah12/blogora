@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 py-8">
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 py-8 sm:px-0 px-4">
       <div className="flex flex-col gap-2">
         <div className="flex flex-col items-start justify-start gap-4">
           <h1 className="text-4xl font-bold">My new Story: First time</h1>

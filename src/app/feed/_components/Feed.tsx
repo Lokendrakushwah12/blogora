@@ -62,7 +62,7 @@ const Feed = () => {
   ];
 
   return (
-    <div className="flex w-3/4 flex-col gap-4">
+    <div className="flex w-full flex-col gap-8 md:w-3/4">
       {blogData.map((blog, index) => (
         <BlogCard
           key={index}

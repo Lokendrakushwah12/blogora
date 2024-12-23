@@ -18,16 +18,21 @@ const BlogCard: React.FC<BlogCardProps> = ({
   slug,
 }) => {
   return (
-    <Link href={`/feed/${slug}`} as={`/feed/${title.toLowerCase().replace(/\s/g, "-")}`}>
-      <div className="flex h-[160px] w-full items-start justify-start gap-2 rounded-xl bg-muted/20 p-2">
-        <div className="size-full w-[400px] overflow-hidden rounded-lg bg-muted/50">
+    <Link
+      href={`/feed/${slug}`}
+      as={`/feed/${title.toLowerCase().replace(/\s/g, "-")}`}
+    >
+      <div className="flex h-full w-full flex-col items-start justify-start gap-2 sm:flex-row">
+        <div className="size-full min-h-[150px] overflow-hidden rounded-lg bg-muted/20 sm:max-w-[280px]">
           <div className="size-full"></div>
         </div>
-        <div className="flex h-full w-full flex-col items-start justify-between gap-2">
-          <h3 className="text-2xl font-semibold">{title}</h3>
-          <p className="text-base font-normal text-muted-foreground">
-            {description}
-          </p>
+        <div className="gap- flex h-full w-full flex-col items-start justify-between gap-2">
+          <div className="flex flex-col">
+            <h3 className="line-clamp-1 text-2xl font-semibold">{title}</h3>
+            <p className="line-clamp-3 text-base font-normal text-muted-foreground">
+              {description}
+            </p>
+          </div>
           <div className="flex items-center justify-center gap-4">
             <div className="flex items-center justify-center gap-1">
               <TimerIcon
