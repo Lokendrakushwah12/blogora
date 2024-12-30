@@ -71,7 +71,7 @@ export function Profile() {
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link
-            href="/account"
+            href="/account/edit"
             className="cursor-pointer text-muted-foreground/60"
           >
             Edit Profile
