@@ -19,6 +19,8 @@ export function Profile() {
   const { logout, token } = useAuth();
   const { data: user } = useUserDetails(token);
 
+  const username = user?.email.split("@")[0];
+
   const handleLogout = () => {
     logout();
     toast.success("Logged out successfully");
@@ -31,15 +33,20 @@ export function Profile() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="z-[299] w-44">
         <DropdownMenuGroup>
-          <DropdownMenuItem className="cursor-pointer text-muted-foreground">
-            <Image
-              className="h-4 w-4 overflow-hidden rounded-full bg-foreground/50"
-              src="/favicon.svg"
-              alt=""
-              width={15}
-              height={15}
-            />{" "}
-            {user?.name ?? "Anonymous"}
+          <DropdownMenuItem>
+            <Link
+              href={`/${username}`}
+              className="flex cursor-pointer items-center justify-center gap-1 text-muted-foreground"
+            >
+              <Image
+                className="h-4 w-4 overflow-hidden rounded-full bg-foreground/50"
+                src="/favicon.svg"
+                alt=""
+                width={15}
+                height={15}
+              />{" "}
+              {user?.name ?? "Anonymous"}
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem
             disabled
