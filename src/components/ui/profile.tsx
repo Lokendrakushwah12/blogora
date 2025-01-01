@@ -48,23 +48,29 @@ export function Profile() {
               {user?.name ?? "Anonymous"}
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem
-            disabled
-            className="cursor-pointer text-muted-foreground"
-          >
-            <ReaderIcon /> Stories
+          <DropdownMenuItem className="cursor-pointer text-muted-foreground hover:text-foreground">
+            <Link
+              href={`/${username}`}
+              className="flex w-full items-center justify-start gap-2"
+            >
+              <ReaderIcon /> Stories
+            </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem
-            disabled
-            className="cursor-pointer text-muted-foreground"
-          >
-            <Heart /> Liked
+          <DropdownMenuItem className="cursor-pointer text-muted-foreground hover:text-foreground">
+            <Link
+              href={`/${username}/likes`}
+              className="flex w-full items-center justify-start gap-2"
+            >
+              <Heart /> Liked
+            </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem
-            disabled
-            className="cursor-pointer text-muted-foreground"
-          >
-            <Bookmark /> Bookmarks
+          <DropdownMenuItem className="cursor-pointer text-muted-foreground hover:text-foreground">
+            <Link
+              href={`/${username}/bookmarks`}
+              className="flex w-full items-center justify-start gap-2"
+            >
+              <Bookmark /> Bookmarks
+            </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
