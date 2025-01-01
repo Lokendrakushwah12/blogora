@@ -1,5 +1,6 @@
 "use client";
 
+import { useUpdatePassword } from "@/api/userPasswordUpdateApi";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,12 +12,11 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Mutation, useMutation } from "@tanstack/react-query";
+import Spinner from "@/components/ui/spinner";
+import { useMutation } from "@tanstack/react-query";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useUpdatePassword } from "@/api/userUpdateApi";
-import Spinner from "@/components/ui/spinner";
 
 const PasswordCard = () => {
   const [isOldPasswordVisible, setIsOldPasswordVisible] =

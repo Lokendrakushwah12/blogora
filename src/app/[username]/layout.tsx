@@ -1,8 +1,7 @@
-import Image from "next/image";
-import ProfileTabs from "./_components/ProfileTabs";
 import Footer from "@/components/landing/footer";
 import Navbar from "@/components/landing/navbar";
 import ProfileHeader from "./_components/ProfileHeader";
+import ProfileTabs from "./_components/ProfileTabs";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

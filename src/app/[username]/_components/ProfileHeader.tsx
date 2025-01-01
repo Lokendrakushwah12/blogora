@@ -4,7 +4,8 @@ import { useParams } from "next/navigation";
 
 const ProfileHeader = () => {
   const { username } = useParams();
-  const email = username + "@gmail.com";
+  const usernameString = Array.isArray(username) ? username.join("") : username;
+  const email = usernameString + "@gmail.com";
   return (
     <>
       <div className="flex w-full items-center justify-between">

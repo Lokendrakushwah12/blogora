@@ -1,28 +1,31 @@
 "use client";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { useParams, usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function ProfileTabs() {
   const { username } = useParams();
+  const usernameString = Array.isArray(username)
+    ? username.join("")
+    : username || "";
   const router = useRouter();
   const pathname = usePathname();
 
-  const getCurrentTab = () => {
+  const getCurrentTab = useCallback(() => {
     if (pathname.endsWith("/likes")) return "Likes";
     if (pathname.endsWith("/bookmarks")) return "Bookmarks";
     return "Stories";
-  };
+  }, [pathname]);
 
   const [activeTab, setActiveTab] = useState(getCurrentTab());
 
   useEffect(() => {
     setActiveTab(getCurrentTab());
-  }, [pathname]);
+  }, [getCurrentTab]);
 
   const handleTabChange = (newActiveId: string | null) => {
     if (!newActiveId) return;
-    let route = `/${username}`;
+    let route = `/${usernameString}`;
     if (newActiveId === "Likes") route += "/likes";
     if (newActiveId === "Bookmarks") route += "/bookmarks";
     router.push(route);
@@ -45,7 +48,7 @@ export default function ProfileTabs() {
             type="button"
             data-id={label}
             aria-label={`${label} view`}
-            className={`w-full items-center hover:text-foreground justify-center py-2 text-center transition-all ${
+            className={`w-full items-center justify-center py-2 text-center transition-all hover:text-foreground ${
               activeTab === label ? "text-foreground" : "text-muted-foreground"
             }`}
           >
