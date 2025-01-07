@@ -1,5 +1,6 @@
 "use client";
 import { useUserDetails } from "@/api/userDetailsApi";
+import { useUpdateDetails } from "@/api/userDetailsUpdateApi";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,6 +20,7 @@ import { useEffect, useState } from "react";
 const EditProfile = () => {
   const { token } = useAuth();
   const { data: user } = useUserDetails(token);
+  const updateDetails = useUpdateDetails();
 
   const [updatedUserData, setUpdatedUserData] = useState({
     name: "",
@@ -63,8 +65,13 @@ const EditProfile = () => {
     }
   };
 
-  const handleSaveChanges = () => {
-    console.log("Updated User Data: ", updatedUserData);
+  const handleSaveChanges = async () => {
+    try {
+      const response = await updateDetails.updateDetails(updatedUserData);
+      console.log("User details updated successfully:", response);
+    } catch (error) {
+      console.error("Error updating user details:", error);
+    }
   };
 
   return (
