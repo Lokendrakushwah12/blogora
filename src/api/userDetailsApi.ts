@@ -4,6 +4,8 @@ import { apiClient } from "./apiClient";
 interface userDetailsResponse {
   name: string;
   email: string;
+  bio: string;
+  profilePhoto: string;
   status: number;
   token: string;
 }

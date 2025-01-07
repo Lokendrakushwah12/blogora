@@ -29,7 +29,15 @@ export function Profile() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className="h-9 w-9 cursor-pointer rounded-full bg-muted-foreground" />
+        <div className="h-9 w-9 cursor-pointer rounded-full bg-muted-foreground">
+          <Image
+            className="aspect-square h-9 w-9 cursor-pointer overflow-hidden rounded-full bg-muted object-cover"
+            src={user?.profilePhoto ?? "/svg/Avatar.svg"}
+            alt=""
+            width={150}
+            height={150}
+          />
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="z-[299] w-44">
         <DropdownMenuGroup>
@@ -38,14 +46,16 @@ export function Profile() {
               href={`/${username}`}
               className="flex cursor-pointer items-center justify-center gap-1 text-muted-foreground"
             >
-              <Image
-                className="h-4 w-4 overflow-hidden rounded-full bg-foreground/50"
-                src="/favicon.svg"
-                alt=""
-                width={15}
-                height={15}
-              />{" "}
-              {user?.name ?? "Anonymous"}
+              <div className="h-4 w-4 cursor-pointer rounded-full bg-muted-foreground">
+                <Image
+                  className="h-4 w-4 overflow-hidden rounded-full bg-foreground/50"
+                  src={user?.profilePhoto ?? "/svg/Avatar.svg"}
+                  alt=""
+                  width={50}
+                  height={50}
+                />
+              </div>
+              {username ?? "Anonymous"}
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem className="cursor-pointer text-muted-foreground hover:text-foreground">
