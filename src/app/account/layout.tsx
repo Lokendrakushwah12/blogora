@@ -1,15 +1,19 @@
+'use client';
 import Navbar from "@/components/landing/navbar";
 import { Tabs, TabsList } from "@/components/ui/tabs";
 import React from "react";
 import { LockIcon, Settings } from "lucide-react";
 import { AvatarIcon } from "@radix-ui/react-icons";
 import SubMenu from "./_components/SubMenu";
+import { usePathname } from "next/navigation";
 
 interface Props {
   children: React.ReactNode;
 }
 
 const AccountLayout = ({ children }: Props) => {
+  const pathname = usePathname();
+
   const userSettingsData = [
     {
       id: 1,
@@ -43,8 +47,8 @@ const AccountLayout = ({ children }: Props) => {
   return (
     <>
       <Navbar />
-      <main className="relative z-40 container mx-auto flex w-full">
-        <Tabs>
+      <main className="container relative z-40 mx-auto flex w-full">
+        <Tabs value={pathname}>
           <TabsList className="flex h-full w-fit flex-col gap-12 pt-5">
             <SubMenu settingType="User Settings" data={userSettingsData} />
             <SubMenu settingType="App" data={appData} />

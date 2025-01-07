@@ -29,6 +29,6 @@ export const useUserDetails = (token: string | null) => {
     enabled: !!token,
     retry: 1,
     staleTime: 1000 * 60 * 5,
-    cacheTime: 1000 * 60 * 60 * 24 * 365,
+    // cacheTime: 1000 * 60 * 60 * 24 * 365,
   });
 };

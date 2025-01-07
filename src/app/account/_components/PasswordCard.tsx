@@ -54,9 +54,9 @@ const PasswordCard = () => {
             Change your password here. After saving, you&apos;ll be logged out.
           </CardDescription>
         </CardHeader>
-        <CardContent className="w-full space-y-4">
+        <CardContent className="w-full space-y-2">
           {/* Old Password Field */}
-          <div className="flex flex-col items-start space-y-1">
+          <div className="flex flex-col items-start space-y-2 pt-1">
             <Label htmlFor="old-password">Current Password</Label>
             <div className="relative w-full">
               <Input
@@ -87,7 +87,7 @@ const PasswordCard = () => {
           </div>
 
           {/* New Password Field */}
-          <div className="flex flex-col items-start space-y-1">
+          <div className="flex flex-col items-start space-y-2 pt-1">
             <Label htmlFor="new-password">New Password</Label>
             <div className="relative w-full">
               <Input
