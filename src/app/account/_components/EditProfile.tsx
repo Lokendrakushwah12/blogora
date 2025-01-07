@@ -12,15 +12,18 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Spinner from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/context/authContext";
+import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const EditProfile = () => {
   const { token } = useAuth();
   const { data: user } = useUserDetails(token);
-  const updateDetails = useUpdateDetails();
+  const { updateDetails } = useUpdateDetails();
 
   const [updatedUserData, setUpdatedUserData] = useState({
     name: "",
@@ -29,7 +32,6 @@ const EditProfile = () => {
     profilePhoto: "/svg/Avatar.svg",
   });
 
-  // Update state once user data is fetched
   useEffect(() => {
     if (user) {
       setUpdatedUserData({
@@ -65,10 +67,16 @@ const EditProfile = () => {
     }
   };
 
+  const mutation = useMutation({
+    mutationFn: updateDetails,
+    onSuccess() {
+      toast.success("Profile updated successfully! 🎉");
+    },
+  });
+  const { status, error } = mutation;
   const handleSaveChanges = async () => {
     try {
-      const response = await updateDetails.updateDetails(updatedUserData);
-      console.log("User details updated successfully:", response);
+      mutation.mutate(updatedUserData);
     } catch (error) {
       console.error("Error updating user details:", error);
     }
@@ -99,6 +107,7 @@ const EditProfile = () => {
                 id="profilePhoto"
                 type="file"
                 onChange={handleFileChange}
+                className="cursor-pointer"
               />
             </div>
           </div>
@@ -129,9 +138,25 @@ const EditProfile = () => {
               placeholder="Tell us a little about yourself"
             />
           </div>
+          {status === "error" && (
+            <p className="text-sm text-red-500">
+              {error instanceof Error
+                ? error.message
+                : "Failed to update user details."}
+            </p>
+          )}
         </CardContent>
         <CardFooter>
-          <Button onClick={handleSaveChanges}>Save changes</Button>
+          <Button onClick={handleSaveChanges} disabled={status === "pending"}>
+            {status === "pending" ? (
+              <>
+                Saving...
+                <Spinner />
+              </>
+            ) : (
+              "Save changes"
+            )}
+          </Button>
         </CardFooter>
       </div>
     </Card>
