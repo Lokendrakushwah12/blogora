@@ -21,10 +21,10 @@ const ProfileHeader = () => {
   useEffect(() => {
     if (user) {
       setUserData({
-        name: user?.name || "",
-        email: user?.email || "",
-        bio: user?.bio || "",
-        profilePhoto: user?.profilePhoto || "",
+        name: user?.name ?? "",
+        email: user?.email ?? "",
+        bio: user?.bio ?? "",
+        profilePhoto: user?.profilePhoto ?? "",
       });
     }
   }, [user]);

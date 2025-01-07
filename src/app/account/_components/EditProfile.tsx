@@ -31,10 +31,10 @@ const EditProfile = () => {
   useEffect(() => {
     if (user) {
       setUpdatedUserData({
-        name: user?.name || "",
-        email: user?.email || "",
-        bio: user?.bio || "",
-        profilePhoto: user?.profilePhoto || "/svg/Avatar.svg",
+        name: user?.name ?? "",
+        email: user?.email ?? "",
+        bio: user?.bio ?? "",
+        profilePhoto: user?.profilePhoto ?? "/svg/Avatar.svg",
       });
     }
   }, [user]);

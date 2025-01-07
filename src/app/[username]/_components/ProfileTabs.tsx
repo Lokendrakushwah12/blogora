@@ -9,7 +9,7 @@ export default function ProfileTabs() {
   const { username } = useParams();
   const usernameString = Array.isArray(username)
     ? username.join("")
-    : username || "";
+    : username ?? "";
   const router = useRouter();
   const pathname = usePathname();
 
