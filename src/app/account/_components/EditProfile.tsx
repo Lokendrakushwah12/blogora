@@ -1,6 +1,7 @@
 "use client";
 import { useUserDetails } from "@/api/userDetailsApi";
 import { useUpdateDetails } from "@/api/userDetailsUpdateApi";
+import ImageUpload from "@/components/image-upload";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -110,6 +111,7 @@ const EditProfile = () => {
                 className="cursor-pointer"
               />
             </div>
+            <ImageUpload/>
           </div>
           <div className="place-items-start space-y-1">
             <Label htmlFor="name">Name</Label>

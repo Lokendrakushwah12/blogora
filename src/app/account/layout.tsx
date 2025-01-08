@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Navbar from "@/components/landing/navbar";
 import { Tabs, TabsList } from "@/components/ui/tabs";
 import React from "react";
@@ -29,32 +29,41 @@ const AccountLayout = ({ children }: Props) => {
     },
     {
       id: 3,
-      icon: <AvatarIcon width={16} height={16} />,
+      icon: <AvatarIcon width={16} height={16} className="h-[24px]" />,
       label: "Edit profile",
       value: "/account/edit",
     },
-  ];
-
-  const appData = [
     {
-      id: 1,
+      id: 4,
       icon: <Settings className="w-4" />,
       label: "Preferences",
       value: "/account/preferences",
     },
   ];
 
+  // const appData = [
+  // {
+  //   id: 1,
+  //   icon: <Settings className="w-4" />,
+  //   label: "Preferences",
+  //   value: "/account/preferences",
+  // },
+  // ];
+
   return (
     <>
       <Navbar />
-      <main className="container relative z-40 mx-auto flex w-full">
-        <Tabs value={pathname}>
-          <TabsList className="flex h-full w-fit flex-col gap-12 pt-5">
+      <main className="overflow- relative z-40 flex w-full md:container">
+        <Tabs
+          value={pathname}
+          className="absolute bottom-0 overflow-x-auto border-t md:static"
+        >
+          <TabsList className="flex h-full w-screen flex-row md:w-fit md:flex-col md:gap-12 md:pt-5">
             <SubMenu settingType="User Settings" data={userSettingsData} />
-            <SubMenu settingType="App" data={appData} />
+            {/* <SubMenu settingType="App" data={appData} /> */}
           </TabsList>
         </Tabs>
-        <div className="flex-1">{children}</div>
+        <div className="mx-auto flex-1">{children}</div>
       </main>
     </>
   );
